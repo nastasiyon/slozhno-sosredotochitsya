@@ -54,7 +54,7 @@
 
 .header {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
   align-items: start;
   padding: 10px;
   block-size: 100vh;
@@ -63,12 +63,13 @@
 
 .header__theme-menu {
   align-self: center;
-  justify-self: center;
+  justify-self: end;
+  padding-right: 0.7%;
 }
 
 .header__theme-menu-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -104,8 +105,8 @@
 /* Бейдж REC — только тёмная тема */
 .header__rec-badge {
   position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 47px;
+  inset-block-start: 2%;
+  inset-inline-end: 4%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -192,16 +193,15 @@
   gap: 20px;
 }
 
-/* Три колонки — только секция 2 */
-.content__cards--three-cols {
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .card__title {
   font-size: var(--font-size);
   font-weight: bold;
   line-height: var(--line-height);
   margin-block-end: 10px;
+}
+
+.card__title.regular {
+  font-weight: normal;
 }
 
 .card__text {
@@ -253,6 +253,25 @@
 .gallery__grid {
   display: grid;
   gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+
+.gallery__image:nth-child(1) {
+  grid-column: span 2;
+}
+
+.gallery__image:nth-child(2) {
+  grid-row: span 2;
+}
+
+.gallery__image:nth-child(3) {
+  grid-row: span 2;
+}
+
+.gallery__image:nth-child(5) {
+  grid-column: span 2;
 }
 
 .gallery__image {
@@ -263,86 +282,8 @@
   object-position: center;
 }
 
-/* ==============================
-   ПЛАНШЕТ — 768px+
-   ============================== */
-
-@media (width >= 768px) {
-  .decorated-zone::before {
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-  }
-
-  .decorated-zone::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
-  }
-
-  .header {
-    padding: 20px;
-  }
-
-  .header__rec-badge {
-    inset-block-start: 20px;
-    inset-inline-end: 57px;
-  }
-
-  .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
-  .header__subtitle {
-    max-inline-size: 364px;
-  }
-
-  .content {
-    gap: 80px;
-    padding-block: 60px;
-    padding-inline: 20px;
-  }
-
-  /* Все секции: заголовок слева, контент справа */
-  .content__section {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  /* Галерея — 3 колонки */
-  .gallery__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .gallery__image:nth-child(1) { grid-column: span 2; }
-  .gallery__image:nth-child(2) { grid-row: span 2; }
-  .gallery__image:nth-child(3) { grid-row: span 2; }
-  .gallery__image:nth-child(5) { grid-column: span 2; }
-
-  .footer {
-    padding: 20px;
-  }
-
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-}
-
-/* ==============================
-   ДЕСКТОП — 1024px+
-   ============================== */
-
-@media (width >= 1024px) {
-  .header__theme-menu-list {
-    flex-direction: row;
-  }
-
-  /* Обычные секции (без title-decor на заголовке секции) */
-  .content__section {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  /* Тема навигации — горизонтальная на десктопе */
-  .header__theme-menu-list {
-    flex-direction: row;
-  }
+.footer.decorated-zone {
+  display: grid;
 }
 
 .footer__title {
@@ -353,4 +294,147 @@
   line-height: 0.825;
   color: var(--focus-color);
   text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* ==============================
+   ТЕЛЕФОН — 375-768px
+   ============================== */
+
+@media (width < 768px) {
+  .decorated-zone::before {
+    inset-block-start: 2%;
+    inset-inline-end: 2%;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 2%;
+    inset-inline-start: 2%;
+  }
+
+  .header {
+    min-height: 668px;
+    padding: 20px;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__subtitle {
+    max-inline-size: 768px;
+  }
+
+  .header__subtitle.title-decor {
+    margin: 14% 7% 12% 0%;
+  }
+
+  .content {
+    gap: 80px;
+    padding-block: 60px;
+    padding-inline: 20px;
+  }
+
+  .content__cards {
+    max-inline-size: 768px;
+  }
+
+
+  .content__cards--three-cols {
+    grid-template-columns: 1fr;
+  }
+
+  /* Все секции: заголовок слева, контент справа */
+  .content__section {
+    max-inline-size: 768px;
+    grid-template-columns: 1fr;
+  }
+
+  /* Галерея — 3 колонки */
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .gallery__image:nth-child(2) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .footer.decorated-zone {
+    min-height: 668px;
+    padding: 20px;
+  }
+
+  .footer__title {
+    justify-self: center;
+    align-self: center;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+/* ==============================
+   ПЛАНШЕТ — 768-1024px
+   ============================== */
+
+/* ==============================
+   ДЕСКТОП — 1024px+
+   ============================== */
+
+@media (width >=1024px) {
+  .header__theme-menu {
+    align-self: flex-start;
+    justify-self: center;
+    padding-right: 0%;
+    padding-top: 0.5%;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__title {
+    align-self: flex-start;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    font-weight: bold;
+    line-height: 0.825;
+    color: var(--focus-color);
+    text-shadow: 2px 2px 0 var(--accent-color);
+  }
+
+  /* Подзаголовок шапки */
+  .header__subtitle {
+    align-self: flex-start;
+    justify-self: end;
+    max-inline-size: 50%;
+    font-weight: bold;
+  }
+
+  /* Обычные секции (без title-decor на заголовке секции) */
+  .content__section {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section.three-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* Три колонки — только секция 2 */
+  .content__cards--three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer.decorated-zone {
+    min-height: 768px;
+  }
 }
