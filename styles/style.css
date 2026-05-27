@@ -130,7 +130,7 @@
 /* Заголовок шапки */
 .header__title {
   align-self: center;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
@@ -159,7 +159,7 @@
 
 .content {
   display: grid;
-  gap: 50px;
+  gap: 80px;
   padding-block: 40px;
   padding-inline: 10px;
 }
@@ -175,6 +175,7 @@
 
 
 .content__section-title {
+  max-width: max-content;
   font-size: var(--font-size);
   font-weight: bold;
   line-height: var(--line-height);
@@ -282,12 +283,13 @@
 
 .footer.decorated-zone {
   display: grid;
+  block-size: 100vh;
 }
 
 .footer__title {
   align-self: center;
   text-align: center;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
@@ -323,7 +325,7 @@
   }
 
   .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
   .header__subtitle {
@@ -332,7 +334,7 @@
   }
 
   .content {
-    gap: 80px;
+    gap: 50px;
     padding-block: 60px;
     padding-inline: 10px;
   }
@@ -381,7 +383,7 @@
   .footer__title {
     justify-self: center;
     align-self: center;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
 
@@ -399,10 +401,6 @@
 
   .content__section.ipad {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer.decorated-zone {
-    min-height: 1024px;
   }
 }
 /* ==============================
@@ -444,10 +442,6 @@
   .footer__title {
     justify-self: center;
     align-self: center;
-    font-size: clamp(9.8125rem, 6.8894rem + 4.5673vw, 11rem);
-  }
-
-  .footer.decorated-zone {
-    min-height: 768px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
