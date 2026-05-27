@@ -160,7 +160,7 @@
 .content {
   display: grid;
   gap: 80px;
-  padding-block: 40px;
+  padding-block: 60px;
   padding-inline: 10px;
 }
 
