@@ -134,7 +134,7 @@
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 /* Подзаголовок шапки */
@@ -293,7 +293,7 @@
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 /* ==============================
@@ -314,10 +314,6 @@
   .decorated-zone::after {
     inset-block-end: 2%;
     inset-inline-start: 2%;
-  }
-
-  .header {
-    min-height: 668px;
   }
 
   .header.iphone {
@@ -373,11 +369,6 @@
 
   .gallery__image:nth-child(5) {
     grid-column: span 1;
-  }
-
-  .footer.decorated-zone {
-    min-height: 668px;
-    padding: 20px;
   }
 
   .footer__title {
