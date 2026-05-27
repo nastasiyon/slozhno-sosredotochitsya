@@ -311,7 +311,7 @@
 }
 
 /* ==============================
-   iPhone XR — 375-768px
+   iPhone SE — 375-768px
    ============================== */
 
 @media (width < 768px) {
@@ -335,15 +335,16 @@
   }
 
   .header.iphone {
-    grid-template-rows: 1.5fr 1.5fr 1fr;
+    grid-template-rows: 1.3fr 1.5fr 1fr;
   }
 
   .header__title {
+    align-self: flex-start;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
   .header__subtitle {
-    max-inline-size: 45vh;
+    max-inline-size: 668px;
     justify-self: center;
   }
 
